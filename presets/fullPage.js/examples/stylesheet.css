@@ -4,12 +4,12 @@ body {
 }
 
 h1 {
-  text-shadow: 0px -40px 10px white;
+  text-shadow: 0px 0px 10px white;
   color: rgba(255,255,255,0);
-  top: 20px;
+  top: 0px;
   position: absolute;
   text-align: center;
-  width: 100%
+  width: 100%;
 }
 
 #menu{
@@ -166,52 +166,16 @@ h1 {
   transition: 0.3s;
 }
 
-
-#section0 h1 {
-  top: 30px;
+.slide h1 {
+  width: 20%;
+  text-align: center;
 }
 
-/*#section0 {
-  background: url(../backgrounds/image1.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
-
-
-/*#section1 {
-  background: url(../backgrounds/image1.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.earthy {
+  height: 300px;
+  width: 300px;
 }
 
-
-#section2 {
-  background: url(../backgrounds/image2.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#section3 {
-  background: url(../backgrounds/image3.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#section4 {
-  background: url(../backgrounds/image4.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
 
 .section {
   background: rgba(255, 255, 255, 0.6);
