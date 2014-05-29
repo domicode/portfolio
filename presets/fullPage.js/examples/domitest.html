@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<title>Continuous Scroll - fullPage.js</title>
+	<meta name="author" content="Matthew Howell" />
+	<meta name="description" content="fullPage continuous scrolling demo." />
+	<meta name="keywords"  content="fullpage,jquery,demo,scroll,loop,continuous" />
+	<meta name="Resource-type" content="Document" />
+	
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="../jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="examples.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+		
+	<script src="../jquery.js"></script>
+	<script src="../jqueryui.js"></script>
+	
+	<script type="text/javascript" src="../jquery.fullPage.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+			  anchors: ['welcome', 'aboutme', 'projects', 'resume', 'contact'],
+			  menu: '#menu',
+        autoScrolling: true,
+        // loopTop: true,
+        // loopBottom: true,
+        scrollingSpeed: 800,
+        continuousVertical: true,
+        slidesNavigation: true,
+        resize: false
+			});
+		});
+	</script>
+
+  <script type="text/javascript" src="media.js"></script> 
+  <script type="text/javascript" src="jquery.metadata.js"></script> 
+  <script type="text/javascript" src="../content.js"></script>  
+
+
+</head>
+<body>
+
+   
+<ul id="menu">
+	<li data-menuanchor="welcome" class="active"><a href="#welcome">Welcome</a></li>
+	<li data-menuanchor="aboutme"><a href="#aboutme">About me</a></li>
+	<li data-menuanchor="projects"><a href="#projects">Projects</a></li>
+  <li data-menuanchor="resume"><a href="#resume">Resume</a></li>
+  <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
+</ul>
+    
+<div id="fullpage">
+
+	<div class="section welcome" id="section0">
+    <div class="intro">
+  		<h1>what is it about?</h1>
+  		<p>my personal website talking about coding</p>
+    </div>
+	</div>
+
+	<div class="section aboutme" id="section1">
+		<div class="intro">
+			<h1>who am I?</h1>
+			<p>Some smart text about me will go here.</p>
+		</div>
+	</div>
+
+	<div class="section projects" id="section2">
+
+      <div class="slide" id="slide1" data-anchor="slide1">
+        <div class="intro">
+          <h1>Overview</h1>
+          <p>
+            Click on the arrows to navigate through the projects or click on the names below to see the individual projects.
+          </p>
+        </div>
+      </div>
+      
+      <div class="slide" id="slide2" data-anchor="slide2">
+        <h1>KYK</h1>
+      </div>
+      
+      <div class="slide" id="slide3" data-anchor="slide3">
+        <h1>Earthy</h1>
+      </div>  
+
+      <div class="slide" id="slide4" data-anchor="slide4">
+        <h1>Tic Tac Toe</h1>
+      </div>
+      <div class="slide" id="slide5" data-anchor="slide5">
+        <h1>Pluralizer</h1>
+      </div>
+
+	</div>
+
+  <div class="section resume" id="section3">
+    <div class="intro">
+      <a class="media resume" href="../resume.pdf"></a>
+      <a class="link resume" href="../resume.pdf">download pdf</a>
+    </div>
+  </div> 
+
+  <div class="section contact" id="section4">
+    
+    <div class="intro">
+      <h1>how to get in touch?</h1>
+      <h3>mail: info@domicode.com</h3>
+      <h3>skype: dschuwey</h3>
+      <h3>twitter: @domi_code</h3>
+    </div>
+
+  </div>
+
+
+
+
+</div>
+
+</body>
+</html>

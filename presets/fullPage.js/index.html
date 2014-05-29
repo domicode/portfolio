@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="content.js"></script>  
+</head>
+<body>
+
+
+
+
+
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+E-Mails
+Mail in Rails is just like another view/format (json, xml etc). 
+1.  E-Mails are not part of my site, so they are not going through rails so I have to write html
+2.  Use whatever_url and not whatever_path since I have to return the absoulte url. 
+3.  App/views/mailer is the directory for the mails. 
+4.  1 mailer for each model I need a mailer for
+5.  Add mail settings in development.rb and/or production.rb
+
+gem :letter_opener – opens the mails int he browser
+config.action_mailer.delivery_method = :letter_opener
+gem: figaro
+
+
+Namespacing
+rails g conroller admin/articles_controller
+
+routes file: 
+namespace :admin do 
+  resources :articles
+end
+forms with namespacing: 
+<%= form_form [:admin, @article] do |f| %>
+
+
+
+Rake Tasks
+Put them into the library
+
+namespace :users do 
+  desc „create an admin user“
+  task :admin [:email, :password] => [:environment] do |t, args|
+    User.create!(
+      email: args[:email],
+      password : args[:password],
+      password_confirmation: args[:password],
+      role: User::ADMIN
+    )
+  end
+end
+
+
+
+
+Testing in Rails
+use rspec rails, set it up in a group. 
+
+group :development, :test do
+  gem „rspec-rails“
+end
+
+rails g rspec:install
+
+test goes into spec, you can remove the the test file
+testing = 3 a’s: arrange, act, assert
+
+rails g resource comment (will create model and controller)
+
+test with rspec
+
+describe Article do
+  it „should create itself“ do 
+    a = Article.new
+    expect(a).to be_invalid
+  end
+end
+
+
+1.  things to know about testing: Order is not guaranteed
+2.  Database is whiped out after every test
+3.  
+
+
+controller testing: 
+
+describe ArticlesController do
+  it „should return all records“ do 
+    get :index
+    expect(assigns[:articles]).to eq([])
+  end 
+
+  it „should show a single record“ do
+    a = Article.create(title: „blah“)
+get :show, id: 1
+    expect(assings[:article])to eq(a)
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
