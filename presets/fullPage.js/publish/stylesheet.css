@@ -1,6 +1,6 @@
 body {
   color: rgba(255,255,255, 1);
-  font-family: "Century Gothic", Arial, sans-serif; 
+  font-family: "Century Gothic", Arial, sans-serif;
 }
 
 h1 {
@@ -210,7 +210,7 @@ h1 {
 }
 
 
-.intro {  
+.intro {
   background: rgba(0,0,0,0.5);
   padding: 15px 0px;
 }
@@ -282,6 +282,10 @@ h1 {
 
 .overview h3 {
   line-height: 0;
+}
+
+.resume a {
+  text-decoration: none;
 }
 
 .contact a {
